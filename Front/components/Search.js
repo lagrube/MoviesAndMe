@@ -1,5 +1,6 @@
 // Components/Search.js
 import React, { useEffect, useState } from "react";
+import { SearchBar } from 'react-native-elements';
 import {
   StyleSheet,
   View,
@@ -44,15 +45,14 @@ const Search = () => {
   }, [films]);
 
   return (
-    <View style={styles.searchBar}>
-      <TextInput
-        style={styles.textinput}
-        placeholder="Titre du film"
+    <View>
+      <SearchBar
+        placeholder="Chercher un film..."
         onChangeText={(text) => setInputFilms(text)}
-        onSubmitEditing={handleSearchFilm}
+        value={inputFilms}
       />
       <View style={styles.btn}>
-        <Button title="Rechercher" onPress={handleSearchFilm}></Button>
+        <Button title="Rechercher" onPress={handleSearchFilm} color="white"></Button>
       </View>
       
       
@@ -79,9 +79,6 @@ const Search = () => {
 };
 
 const styles = StyleSheet.create({
-  searchBar:{
-    marginTop:50
-  },
   textinput: {
     marginLeft: 5,
     marginRight: 5,
@@ -99,6 +96,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  btn:{
+    backgroundColor:'gray',
+  }
 });
 
 export default Search;

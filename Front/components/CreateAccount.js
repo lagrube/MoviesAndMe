@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-const CreateAccount = () => {
+const CreateAccount = (props) => {
 
     const [Newemail,setNewEmail]=useState(null);
     const [newPwd, setNewPwd]=useState(false);
@@ -12,7 +12,7 @@ const CreateAccount = () => {
         content:{
             justifyContent: 'center',
             backgroundColor: '#000000',
-            height: '100%',
+            height: '90%',
         },
         input:{
             backgroundColor:'white',
@@ -20,7 +20,7 @@ const CreateAccount = () => {
         text:{
             textAlign: 'center',
             fontSize:20,    
-            color:'white',
+            color:'blue',
             alignSelf: 'center',
             justifyContent: 'center',
             alignItems: 'center',
@@ -36,7 +36,9 @@ const CreateAccount = () => {
             password:newPwd
         }
         axios.post('http://10.50.33.72:5000/api/user/signup',infoUserToCreate).then((res)=>{
-            console.log(res.data.message)
+            console.log(res.data);
+            props.setCreateAccount(false);          
+
         })
         .catch((err)=>{
             console.log(err)
@@ -46,7 +48,7 @@ const CreateAccount = () => {
     return (
         <View style={styles.content}>
             <Text style={styles.text}>
-                Votre adresse email
+                Votre email
             </Text>
             <View style={styles.input}>
                  <TextInput
@@ -54,11 +56,17 @@ const CreateAccount = () => {
                     onChangeText={text => setNewEmail(text)}
                     defaultValue={Newemail}
                 />
+                 <Text style={styles.text}>
+                Votre pseudo
+            </Text>
                  <TextInput
                     placeholder="Entrez votre pseudo"
                     onChangeText={text => setNewPseudo(text)}
                     defaultValue={NewPseudo}
                 />
+                 <Text style={styles.text}>
+                Votre mot de passe
+            </Text>
                 <TextInput
                     placeholder="Entrez votre mot de passe"
                     onChangeText={text => setNewPwd(text)}

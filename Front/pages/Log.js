@@ -16,12 +16,12 @@ const Log = () => {
         view:{
             justifyContent: 'center',
             backgroundColor: '#000000',
-            height: '100%',
+            height: '90%',
         },
         auth:{
             textAlign: 'center',
             color: 'yellow',
-            fontSize:28,    
+            fontSize:20,    
             alignSelf: 'center',
             justifyContent: 'center',
             alignItems: 'center',
@@ -52,6 +52,8 @@ const Log = () => {
             console.log(res.data)
             setisConnected(true);
             setUserToken(res.data.token);
+            setPwd(null);
+            setEmail(null);
         })
         .catch((err)=>{
             console.log(pwd,email)
@@ -63,10 +65,10 @@ const Log = () => {
 
     return (
         <View>
-            <Header/>
+            <Header setisConnected={setisConnected} isConnected={isConnected}/>
             {
                 wantToCreateAccount ? 
-                    <CreateAccount/>
+                    <CreateAccount setCreateAccount={setCreateAccount} setisConnected={setisConnected} />
                 :
                 <View>
                 {
@@ -110,7 +112,6 @@ const Log = () => {
                 }
                 </View>
             }
-            
         </View>
     );
 };
