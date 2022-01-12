@@ -24,6 +24,7 @@ app.use(cors(corsOptions));
 
 // Body-parser
 app.use(bodyParser.json());
+
 // Routes
 app.use("/api/user", userRoutes);
 

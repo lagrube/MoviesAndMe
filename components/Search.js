@@ -56,7 +56,6 @@ const Search = () => {
       {isLoading && (
         <View style={styles.loading_container}>
           <ActivityIndicator size="large" />
-          {/* Le component ActivityIndicator possède une propriété size pour définir la taille du visuel de chargement : small ou large. Par défaut size vaut small, on met donc large pour que le chargement soit bien visible */}
         </View>
       )}
       <FlatList
@@ -66,7 +65,6 @@ const Search = () => {
         onEndReachedThreshold={0.5}
         onEndReached={() => {
           if (page < totalPage) {
-            // On vérifie qu'on n'a pas atteint la fin de la pagination (totalPages) avant de charger plus d'éléments
             handleGetMoreFilm();
           }
         }}
