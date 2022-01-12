@@ -1,6 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  SafeAreaView,
+} from "react-native";
 
 const Signup = (props) => {
   const [email, setEmail] = useState();
@@ -25,48 +32,56 @@ const Signup = (props) => {
   return (
     <>
       <View style={styles.content}>
-        <Text style={styles.text}>Votre adresse email</Text>
-        <View style={styles.input}>
-          <TextInput
-            placeholder="Entrez votre email"
-            onChangeText={(text) => setEmail(text)}
-            defaultValue={email}
-          />
-          <TextInput
-            placeholder="Entrez votre pseudo"
-            onChangeText={(text) => setPseudo(text)}
-            defaultValue={pseudo}
-          />
-          <TextInput
-            placeholder="Entrez votre mot de passe"
-            onChangeText={(text) => setPassword(text)}
-            defaultValue={password}
-          />
-        </View>
+        <SafeAreaView>
+          <Text style={styles.auth}>Espace inscription</Text>
+          <View style={styles.input_container}>
+            <TextInput
+              style={styles.input}
+              placeholder="Entrez votre email"
+              onChangeText={(text) => setEmail(text)}
+              defaultValue={email}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Entrez votre pseudo"
+              onChangeText={(text) => setPseudo(text)}
+              defaultValue={pseudo}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Entrez votre mot de passe"
+              onChangeText={(text) => setPassword(text)}
+              defaultValue={password}
+            />
+          </View>
 
-        <Button
-          onPress={CreateNewAccount}
-          title="Créer mon compte"
-          color="green"
-        />
-        <Button
-          onPress={() => props.changeStatus("login")}
-          title="Retour"
-          color="green"
-        />
+          <Button onPress={CreateNewAccount} title="Créer mon compte" />
+          <Button onPress={() => props.changeStatus("login")} title="Retour" />
+        </SafeAreaView>
       </View>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  content: {
+  auth: {
+    textAlign: "center",
+    fontSize: 28,
+    alignSelf: "center",
     justifyContent: "center",
-    backgroundColor: "#000000",
+    alignItems: "center",
+    textAlignVertical: "center",
+    alignContent: "center",
+  },
+  content: {
+    marginTop: "50%",
     height: "100%",
   },
   input: {
-    backgroundColor: "white",
+    margin: 15,
+    height: 40,
+    borderColor: "#7a42f4",
+    borderWidth: 1,
   },
   text: {
     textAlign: "center",

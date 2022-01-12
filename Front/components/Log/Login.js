@@ -32,16 +32,18 @@ const Login = (props) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <SafeAreaView style={styles.view}>
-        <Text style={styles.auth}>Veuillez vous authentifiez</Text>
-        <View style={styles.input}>
+        <Text style={styles.auth}>Espace connection</Text>
+        <View>
           <TextInput
+            style={styles.input}
             placeholder="Entrez votre email"
             onChangeText={(text) => setEmail(text)}
             defaultValue={email}
           />
           <TextInput
+            style={styles.input}
             placeholder="Entrez votre mot de passe"
             onChangeText={(text) => setPassword(text)}
             defaultValue={password}
@@ -62,9 +64,15 @@ const Login = (props) => {
 };
 
 const styles = StyleSheet.create({
-  view: {
-    justifyContent: "center",
+  container: {
+    marginTop: "50%",
     height: "100%",
+  },
+  input: {
+    margin: 15,
+    height: 40,
+    borderColor: "#7a42f4",
+    borderWidth: 1,
   },
   auth: {
     textAlign: "center",
@@ -74,10 +82,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textAlignVertical: "center",
     alignContent: "center",
-  },
-  input: {
-    // backgroundColor: "grey",
-    display: "flex",
   },
   createaccount: {
     // color: "white",
