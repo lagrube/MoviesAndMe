@@ -47,6 +47,7 @@ const Login = (props) => {
             placeholder="Entrez votre mot de passe"
             onChangeText={(text) => setPassword(text)}
             defaultValue={password}
+            secureTextEntry
           />
         </View>
         <Button onPress={handleLogin} title="Se connecter"></Button>
