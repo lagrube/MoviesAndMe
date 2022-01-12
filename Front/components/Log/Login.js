@@ -51,9 +51,7 @@ const Login = (props) => {
         </View>
         <Button onPress={handleLogin} title="Se connecter"></Button>
 
-        <Text style={styles.createaccount}>
-          Vous n'avez pas de compte ? Créez-en un en cliquant
-        </Text>
+        <Text style={styles.createaccount}>Vous n'avez pas de compte ?</Text>
         <Button
           onPress={() => props.changeStatus("signup")}
           title="S'inscrire"
