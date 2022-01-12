@@ -1,18 +1,11 @@
 import React from "react";
-// import { View } from "react-native";
-import Home from "./pages/Home";
+import Log from "./pages/Log";
+// import Route from "./components/Route/Route";
 
 export default function App() {
   return (
     <>
-      <Home/>
-      {/* 
-        <View style={{ flex: 1, backgroundColor: "yellow" }}>
-          <View style={{ flex: 1, backgroundColor: "red" }}></View>
-          <View style={{ flex: 2, backgroundColor: "green" }}></View>
-          <View style={{ flex: 3, backgroundColor: "blue" }}></View>
-        </View>
-      */}
+      <Log />
     </>
   );
 }
