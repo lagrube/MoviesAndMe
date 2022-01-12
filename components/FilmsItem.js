@@ -7,7 +7,6 @@ import { getImageFromApi } from "../API/TMDBApi";
 
 const FilmItem = (props) => {
   const film = props.film;
-  // console.log(film);
   return (
     <View style={styles.main_container}>
       <Image
